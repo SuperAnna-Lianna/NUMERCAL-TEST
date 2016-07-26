@@ -17,3 +17,6 @@ public class SolutionStack {
      return  stack2.pop().intValue();
     }
 }
+
+//思路:  思路很简单: 栈先进后出,队列先进先出, stack2作为中间转换栈
+//       注意一个坑: int,Integer之间相互转换   int->Integer   new  Integer(**)      Integer->int   .intValue()
