@@ -1,5 +1,5 @@
 public class BubbleTest
-{
+{//二分法查找  一堆数组折半查找  时间复杂度 O(logn)
     public static int binary(int[] array, int value)
     {
         int low = 0;
@@ -26,6 +26,5 @@ public class BubbleTest
     {
         int[] a = {1, 2, 3, 4, 5, 6, 7, 8, 9};
         int value = binary(a, 9);
-        System.out.println(value);
     }
 }
