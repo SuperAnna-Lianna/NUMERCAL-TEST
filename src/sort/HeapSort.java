@@ -1,16 +1,13 @@
 package sort;
 
+import java.io.BufferedInputStream;
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+
 public class HeapSort {
 	private int heaplength = 0;
-	public int left(int node) {
-		return 2 * node + 1;
-	}
-	public int right(int node) {
-		return 2 * node + 2;
-	}
-	public int parent(int node) {
-		return (node + 1) / 2 - 1;
-	}
+
 	public void heapTheNode(int[] heap, int i) {
 		int left = 2 * i + 1;
 		int right = 2 * i + 2;
@@ -29,7 +26,7 @@ public class HeapSort {
 
 	public void buildTheHeap(int[] heap) {
 		heaplength = heap.length;
-		for (int i = (heap.length + 1) / 2 - 1; i >= 0; i--) {
+		for (int i = (heap.length - 1) / 2 - 1; i >= 0; i--) {
 			heapTheNode(heap, i);
 		}
 	}
@@ -46,41 +43,41 @@ public class HeapSort {
 	}
 
 	public static void main(String[] args) throws Exception {
-//		HeapSort heapSort = new HeapSort();
-//		int [] array = {100,60,70,50,32,65};
-//		heapSort.heapSort(array);
-//		for(int temp:array){
-//			System.out.print(temp+"\t");
-//		}
-//		
+		HeapSort heapSort = new HeapSort();
+		int [] array = {100,60,70,50,32,65};
+		heapSort.heapSort(array);
+		for(int temp:array){
+			System.out.print(temp+"\t");
+		}
+
 		
 		
 		
-    FileInputStream fis=null;
-	fis = new FileInputStream("D://a.txt");
-	BufferedInputStream bis=new BufferedInputStream(fis);
-	InputStreamReader isr=new InputStreamReader(bis);
-	BufferedReader br=new BufferedReader(isr);
-	
-	String temp=null;
-	int [] array =new int [500000];
-	int s=0;
-	while((temp=br.readLine())!=null){
-		array[s]=Integer.parseInt(temp);
-		s++;
-	}
-	br.close();
-	isr.close();
-	bis.close();
-	fis.close();
-	
-	HeapSort heapSort = new HeapSort();
-	long time=System.nanoTime();
-	heapSort.heapSort(array);
-	long time1=System.nanoTime();
-	System.out.println(time+"    "+time1+"\t\t"+(time1-time));
-	for(int te:array){
-		System.out.println(te+"\t");
-	}
+//    FileInputStream fis=null;
+//	fis = new FileInputStream("D://a.txt");
+//	BufferedInputStream bis=new BufferedInputStream(fis);
+//	InputStreamReader isr=new InputStreamReader(bis);
+//	BufferedReader br=new BufferedReader(isr);
+//
+//	String temp=null;
+//	int [] array =new int [500000];
+//	int s=0;
+//	while((temp=br.readLine())!=null){
+//		array[s]=Integer.parseInt(temp);
+//		s++;
+//	}
+//	br.close();
+//	isr.close();
+//	bis.close();
+//	fis.close();
+//
+//	HeapSort heapSort = new HeapSort();
+//	long time=System.nanoTime();
+//	heapSort.heapSort(array);
+//	long time1=System.nanoTime();
+//	System.out.println(time+"    "+time1+"\t\t"+(time1-time));
+//	for(int te:array){
+//		System.out.println(te+"\t");
+//	}
 	}
 }
